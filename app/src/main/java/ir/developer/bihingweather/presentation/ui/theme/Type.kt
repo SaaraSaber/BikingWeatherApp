@@ -1,4 +1,4 @@
-package ir.developer.bihingweather.ui.theme
+package ir.developer.bihingweather.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
