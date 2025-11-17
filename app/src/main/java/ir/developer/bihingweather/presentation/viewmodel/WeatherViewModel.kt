@@ -12,6 +12,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
+import ir.developer.bihingweather.data.remote.Config
 import ir.developer.bihingweather.domain.model.BikeRidingScore
 import ir.developer.bihingweather.domain.model.DailyForecast
 import ir.developer.bihingweather.domain.model.Temperature
@@ -149,6 +150,16 @@ class WeatherViewModel(
             }
         }
         return allDailyForecasts.take(6) // Return up to 6 days
+    }
+
+    fun formatData(timesTamp: Long): String {
+        val date = Date(timesTamp * 1000) //Convert Unix timestamp to milliseconds
+        val dataFormat = SimpleDateFormat("EEE,MM,d", Locale.getDefault())
+        return dataFormat.format(date)
+    }
+
+    fun getWeatherIcon(iconCode: String): String {
+        return "${Config.WEATHER_ICON_BASE_URL}${iconCode}@2x.png"
     }
 }
 
