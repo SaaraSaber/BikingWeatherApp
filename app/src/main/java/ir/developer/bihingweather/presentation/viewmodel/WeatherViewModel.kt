@@ -152,7 +152,7 @@ class WeatherViewModel(
         return allDailyForecasts.take(6) // Return up to 6 days
     }
 
-    fun formatData(timesTamp: Long): String {
+    fun formatDate(timesTamp: Long): String {
         val date = Date(timesTamp * 1000) //Convert Unix timestamp to milliseconds
         val dataFormat = SimpleDateFormat("EEE,MM,d", Locale.getDefault())
         return dataFormat.format(date)
